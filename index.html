@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Quote Generator</title>
+  </head>
+  <body>
+    <div class="quote-container" id="quote-container">
+      <div class="quote-text">
+        <i class="fa-solid fa-quote-left" style="color: #160634"></i>
+        <span id="quote"> </span>
+      </div>
+      <div class="quote-author">
+        <span id="author"> </span>
+      </div>
+      <div class="buttons-container">
+        <button class="save-button" id="saveButton" title="Post this!">
+          <i
+            class="fa-regular fa-bookmark"
+            id="bookmark"
+            style="color: #f6f7eb"
+          ></i>
+        </button>
+        <button id="new-quote">New Quote</button>
+      </div>
+    </div>
+    <i
+      class="fa-solid fa-cloud"
+      id="show-saved-list"
+      style="color: #160634"
+    ></i>
+    <div class="saved-modal">
+      <i
+        class="fa-solid fa-xmark"
+        id="hide-saved-list"
+        style="color: #160634"
+      ></i>
+      <div id="saved-list"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
