@@ -1,4 +1,4 @@
-https://quote-generator-byzohrab.vercel.app
+https://quote-generator-jafarl1.vercel.app
 
 This app randomly generates quotes by fetching api.
 I use there IIFE, async await and ect. javascript functions. You can get a new quote clicking New Quote button or refreshing the page.
