@@ -114,7 +114,6 @@ button:active {
   height: 90%;
 }
 .saved-quote {
-  width: 95%;
   border: 1px solid var(--transparentDark);
   border-radius: 5px;
   padding: 10px;
