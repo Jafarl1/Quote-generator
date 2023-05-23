@@ -8,6 +8,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 :root {
   --dark: #160634;
+  --transparentDark: #16063421;
   --beige: #f6f7eb;
 }
 ::selection {
@@ -108,18 +109,35 @@ button:active {
 .show-list {
   transform: translateY(0);
 }
-#saved-list{
+#saved-list {
   overflow: auto;
   height: 90%;
 }
-.saved-quote{
+.saved-quote {
   width: 95%;
-  border: 1px solid #1606342b;
+  border: 1px solid var(--transparentDark);
   border-radius: 5px;
   padding: 10px 5px;
   margin-bottom: 10px;
 }
 
+.loader {
+  border: 6px double var(--transparentDark);
+  border-top-color: var(--dark);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media screen and (max-width: 1000px) {
   .quote-container {

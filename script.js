@@ -1,17 +1,25 @@
-let quoteText = document.getElementById("quote");
-let authorText = document.getElementById("author");
-let saveButton = document.getElementById("saveButton");
-let bookmark = document.getElementById("bookmark");
-let newQuoteButton = document.getElementById("new-quote");
-let savedModal = document.querySelector(".saved-modal");
-let savedList = document.getElementById("saved-list");
-let showSavedList = document.getElementById("show-saved-list");
-let hideSavedList = document.getElementById("hide-saved-list");
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+const saveButton = document.getElementById("saveButton");
+const bookmark = document.getElementById("bookmark");
+const newQuoteButton = document.getElementById("new-quote");
+const savedModal = document.querySelector(".saved-modal");
+const savedList = document.getElementById("saved-list");
+const showSavedList = document.getElementById("show-saved-list");
+const hideSavedList = document.getElementById("hide-saved-list");
+const loader = document.getElementById("loader");
 let apiQuotes = [];
 let savedQuotes = [];
 let currentQuote = "";
 
+const loading = (boolean) =>
+  boolean
+    ? ((loader.hidden = false), (quoteContainer.hidden = true))
+    : ((loader.hidden = true), (quoteContainer.hidden = false));
+
 const randomQuote = (allQuotes) => {
+  loading(true);
   const current = allQuotes[Math.floor(Math.random() * allQuotes.length)];
   current.text.length > 100
     ? quoteText.classList.add("long-quote")
@@ -20,9 +28,11 @@ const randomQuote = (allQuotes) => {
   quoteText.textContent = current.text;
   authorText.textContent = current?.author ?? "Unknown";
   currentQuote = current;
+  loading(false);
 };
 
 (async function getQuotes() {
+  loading(true);
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
   try {
     const response = await fetch(apiUrl);
