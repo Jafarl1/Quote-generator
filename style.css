@@ -117,7 +117,7 @@ button:active {
   width: 95%;
   border: 1px solid var(--transparentDark);
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px;
   margin-bottom: 10px;
 }
 

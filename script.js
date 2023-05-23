@@ -46,13 +46,12 @@ const randomQuote = (allQuotes) => {
 })();
 
 function toggleBookmarkButton() {
-  if (savedQuotes.some((el) => el === currentQuote)) {
-    bookmark.classList.add("fa-solid");
-    bookmark.classList.remove("fa-regular");
-  } else {
-    bookmark.classList.add("fa-regular");
-    bookmark.classList.remove("fa-solid");
-  }
+  savedQuotes.some((el) => el === currentQuote)
+    ? (bookmark.classList.add("fa-solid"),
+      bookmark.classList.remove("fa-regular"))
+    : (bookmark.classList.add("fa-regular"),
+      bookmark.classList.remove("fa-solid"));
+
   handleSavedList();
 }
 
@@ -71,11 +70,11 @@ function handleSavedList() {
 
 saveButton.addEventListener("click", () => {
   let saved = apiQuotes.find((el) => el === currentQuote);
-  if (savedQuotes.some((el) => el === saved)) {
-    savedQuotes = savedQuotes.filter((el) => el !== saved);
-  } else {
-    savedQuotes.push(saved);
-  }
+
+  savedQuotes.some((el) => el === saved)
+    ? (savedQuotes = savedQuotes.filter((el) => el !== saved))
+    : savedQuotes.push(saved);
+
   toggleBookmarkButton();
 });
 
@@ -87,6 +86,7 @@ newQuoteButton.addEventListener("click", () => {
 showSavedList.addEventListener("click", () => {
   savedModal.classList.toggle("show-list");
 });
+
 hideSavedList.addEventListener("click", () => {
   savedModal.classList.remove("show-list");
 });
