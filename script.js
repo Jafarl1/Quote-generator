@@ -47,10 +47,8 @@ const randomQuote = (allQuotes) => {
 
 function toggleBookmarkButton() {
   savedQuotes.some((el) => el === currentQuote)
-    ? (bookmark.classList.add("fa-solid"),
-      bookmark.classList.remove("fa-regular"))
-    : (bookmark.classList.add("fa-regular"),
-      bookmark.classList.remove("fa-solid"));
+    ? bookmark.classList.replace("fa-regular", "fa-solid")
+    : bookmark.classList.replace("fa-solid", "fa-regular");
 
   handleSavedList();
 }
